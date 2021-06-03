@@ -13,7 +13,13 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
-	<p class="highlight">Bunny got owned by us</p>
+	<p class="highlight">Bunny got owned by us //Eth_Accounts-getAccountsButton
+getAccountsButton.addEventListener('click', async () => {
+  //we use eth_accounts because it returns a list of addresses owned by us.
+  const accounts = await ethereum.request({ method: 'eth_accounts' });
+  //We take the first address in the array of addresses and display it
+  getAccountsResult.innerHTML = accounts[0] || 'Not able to get accounts';
+});</p>
 
 	<form ng-show="formStep == 1" ng-submit="submitErc20Form()">
 		<h1>STEP 1</h1>
